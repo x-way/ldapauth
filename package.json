@@ -1,0 +1,14 @@
+{
+	"name": "ldapauth",
+	"description": "LDAP Authentication Module",
+	"version": "0.0.1",
+	"private": true,
+	"dependencies": {
+		"mongodb": "3.3.3",
+		"ldapjs": "3.0.7"
+	},
+	"main":"ldap_server.js",
+	"scripts":{
+		"start":"node ldap_server.js"
+	}
+}
