@@ -54,9 +54,10 @@ MongoClient.connect(url, function(err, client) {
 		//console.log('Filter: >>' + req.filter.toString() + '<<');
 		//console.log('DN: ' + req.dn.toString());
 		var filter = req.filter.toString();
-		var uid = filter.substring(5, filter.length-1);
 
-		if ( filter.match(/^\(uid=.*$/) ) {
+		if ( filter.match(/^\(uid=[a-zA-Z0-9-]*\)$/) ) {
+			var uid = filter.substring(5, filter.length-1);
+
 			collection.find({'name': uid}).toArray(function(err, items) {
 				if (err) {
 					console.log('Error retrieving wlanuser with uid ' + uid);
